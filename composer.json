@@ -1,6 +1,6 @@
 {
     "name": "jaetoole/castable-dto",
-    "description": "Cast Eloquent Fields To Custom DTOs",
+    "description": "Cast Eloquent Fields To Standard PHP 8 DTOs (Alpha).",
     "keywords": [
         "jaetoole",
         "laravel",
