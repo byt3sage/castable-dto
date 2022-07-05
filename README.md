@@ -20,11 +20,41 @@ composer require jaetoole/castable-dto
 It's as simple as that!
 
 ## Usage
-In your model, you can specify the following:
+Imagine we have a Data Transfer Object like the below:
+```php
+<?php
+
+class MyDto
+{
+    public function __construct(
+        public string $myField
+        public int $mySecondField
+    ) {
+    }
+}
+```
+
+That's good but how would we populate this from an Eloquent array or JSON object?
+
+First off, let's extend the `CastableDto` class.
+```php
+<?php
+
+class MyDto extends \JaeToole\CastableDto\CastableDto
+{
+    public function __construct(
+        public string $myField
+        public int $mySecondField
+    ) {
+    }
+}
+```
+
+Then, in your model, you can specify the following:
 
 ```php
 protected $casts => [
-    'myArrayField' => MyArrayDto::class
+    'myArrayField' => MyDto::class
 ]
 ```
 Then, when fetching or storing your `myArrayField`, it will be automatically converted to your Data Transfer Object.
